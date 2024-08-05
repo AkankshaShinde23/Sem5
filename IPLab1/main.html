@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolex Watches</title>
+    <style>
+        header img {
+            height: 70px; /* Smaller height for the logo */
+            margin-right: 10px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+        nav .nav-links {
+            display: flex;
+        }
+        nav .nav-links a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav .auth-buttons {
+            display: flex;
+        }
+        nav .auth-buttons a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            padding: 5px 10px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+        }
+        nav .auth-buttons a:hover {
+            background-color: #fff;
+            color: #333;
+        }
+        .hero {
+            background-image: url('watch.png');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+            color: #f0efea;
+            animation: fadeInScale 2s ease-in-out;
+        }
+        .content {
+            padding: 20px;
+        }
+        .footer {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Rolex Logo">
+        <h1>Rolex Watches</h1>
+    </header>
+    <nav>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#collections">Collections</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="auth-buttons">
+            <a href="#signin">Sign In</a>
+            <a href="http://127.0.0.1:3000/loginpg.html">Log In</a>
+        </div>
+    </nav>
+    <div class="hero">
+        <h1>Elegance and Precision</h1>
+    </div>
+    <div class="content">
+        <h2>Welcome to Rolex</h2>
+        <p>Discover the finest collection of luxury watches, crafted with unparalleled precision and timeless elegance. Explore our iconic models and find the perfect timepiece for you.</p>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 Rolex. All rights reserved.</p>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+</html>
