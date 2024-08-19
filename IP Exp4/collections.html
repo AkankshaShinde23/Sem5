@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolex Collections</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+        .collections {
+            padding: 20px;
+            text-align: center;
+        }
+        .watch-item {
+            display: inline-block;
+            margin: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .watch-image {
+            height: 200px;
+            width: auto;
+            margin-bottom: 10px;
+        }
+        .order-btn {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .order-btn:hover {
+            background-color: #000;
+        }
+        .receipt {
+            display: none;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#collections">Collections</a>
+        <a href="contact.html">Contact</a>
+        <a href="#about">About Us</a>
+    </nav>
+    <div class="collections">
+        <h2>Our Collections</h2>
+        <div class="watch-item">
+            <img src="watch1.png" alt="Rolex Submariner" class="watch-image">
+            <h3>Rolex Submariner</h3>
+            <p>Price: $8,000</p>
+            <form class="order-form">
+                <input type="hidden" name="watchName" value="Rolex Submariner">
+                <input type="hidden" name="watchPrice" value="$8,000">
+                <button type="submit" class="order-btn">Order Now</button>
+            </form>
+        </div>
+        <div class="watch-item">
+            <img src="watch2.png" alt="Rolex Daytona" class="watch-image">
+            <h3>Rolex Daytona</h3>
+            <p>Price: $12,000</p>
+            <form class="order-form">
+                <input type="hidden" name="watchName" value="Rolex Daytona">
+                <input type="hidden" name="watchPrice" value="$12,000">
+                <button type="submit" class="order-btn">Order Now</button>
+            </form>
+        </div>
+        <div class="watch-item">
+            <img src="watch3.png" alt="Rolex Datejust" class="watch-image">
+            <h3>Rolex Datejust</h3>
+            <p>Price: $7,500</p>
+            <form class="order-form">
+                <input type="hidden" name="watchName" value="Rolex Datejust">
+                <input type="hidden" name="watchPrice" value="$7,500">
+                <button type="submit" class="order-btn">Order Now</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="receipt" class="receipt">
+        <h2>Receipt</h2>
+        <p id="receiptDetails"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
