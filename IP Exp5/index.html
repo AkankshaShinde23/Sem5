@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator with Promises, Custom Iterator, and Prime Generator</title>
+    <link rel="stylesheet" href="style.css"></link>
+    <script>
+        function calculator(num1, num2, operation) {
+            return new Promise((resolve, reject) => {
+                if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+                    reject("Invalid input, both arguments must be numbers");
+                }
+
+                switch (operation) {
+                    case 'add':
+                        resolve(num1 + num2);
+                        break;
+                    case 'subtract':
+                        resolve(num1 - num2);
+                        break;
+                    case 'multiply':
+                        resolve(num1 * num2);
+                        break;
+                    case 'divide':
+                        if (num2 === 0) {
+                            reject("Cannot divide by zero");
+                        } else {
+                            resolve(num1 / num2);
+                        }
+                        break;
+                    default:
+                        reject("Invalid operation");
+                }
+            });
+        }
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operation = document.getElementById('operation').value;
+
+            calculator(num1, num2, operation)
+                .then(result => {
+                    document.getElementById('result').textContent = `Result: ${result}`;
+                })
+                .catch(error => {
+                    document.getElementById('result').textContent = `Error: ${error}`;
+                });
+        }
+
+        // Custom iterator that returns squares of numbers in the array
+        function* squareIterator(numbers) {
+            for (let num of numbers) {
+                yield num * num;
+            }
+        }
+
+        // Function to display the squared numbers from user input
+        function showSquares() {
+            const input = document.getElementById('userNumbers').value;
+            const numbers = input.split(',').map(Number); // Convert input to an array of numbers
+
+            if (numbers.some(isNaN)) {
+                document.getElementById('squareResult').textContent = 'Error: Please enter valid numbers';
+                return;
+            }
+
+            const iterator = squareIterator(numbers);
+            let result = `Squares of [${numbers.join(', ')}]: `;
+
+            for (let square of iterator) {
+                result += `${square} `;
+            }
+
+            document.getElementById('squareResult').textContent = result;
+        }
+
+        // Prime number generator up to a specified limit
+        function* primeGenerator(limit) {
+            function isPrime(num) {
+                for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+                    if (num % i === 0) return false;
+                }
+                return num > 1;
+            }
+
+            for (let num = 2; num <= limit; num++) {
+                if (isPrime(num)) {
+                    yield num;
+                }
+            }
+        }
+
+        // Function to show prime numbers up to the user-specified limit
+        function showPrimes() {
+            const limit = parseInt(document.getElementById('primeLimit').value);
+
+            if (isNaN(limit) || limit < 2) {
+                document.getElementById('primeResult').textContent = 'Error: Please enter a valid limit (greater than or equal to 2)';
+                return;
+            }
+
+            const iterator = primeGenerator(limit);
+            let primes = 'Prime numbers: ';
+
+            for (let prime of iterator) {
+                primes += `${prime} `;
+            }
+
+            document.getElementById('primeResult').textContent = primes;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Basic Calculator</h1>
+        <label for="num1">Number 1:</label>
+        <input type="number" id="num1" step="any"><br><br>
+
+        <label for="num2">Number 2:</label>
+        <input type="number" id="num2" step="any"><br><br>
+
+        <label for="operation">Operation:</label>
+        <select id="operation">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="multiply">Multiply</option>
+            <option value="divide">Divide</option>
+        </select><br><br>
+
+        <button onclick="calculate()">Calculate</button>
+
+        <h2 id="result"></h2>
+
+        <h1>Custom Iterator for Squares</h1>
+        <label for="userNumbers">Enter numbers separated by commas (e.g., 2, 4, 6):</label><br>
+        <input type="text" id="userNumbers"><br><br>
+
+        <button onclick="showSquares()">Show Squares</button>
+        <h2 id="squareResult"></h2>
+
+        <h1>Prime Number Generator</h1>
+        <label for="primeLimit">Enter the limit (find primes up to):</label><br>
+        <input type="number" id="primeLimit" min="2"><br><br>
+
+        <button onclick="showPrimes()">Show Primes</button>
+        <h2 id="primeResult"></h2>
+    </div>
+</body>
+</html>
